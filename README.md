@@ -1,6 +1,8 @@
 # URL Shortener
 
 A full-stack URL shortening application built with Node.js, Express, MongoDB, and Next.js.
+Admin:https://url-shortener-admin.vercel.app/
+Frontend:https://url-shortener-taupe-theta.vercel.app/
 
 ## Features
 
