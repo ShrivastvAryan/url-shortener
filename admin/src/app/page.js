@@ -16,7 +16,7 @@ const Admin = () => {
   const fetchUrls = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/admin/urls');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/admin/urls`);
       if (!response.ok) {
         throw new Error('Failed to fetch URLs');
       }
@@ -36,7 +36,7 @@ const Admin = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/urls/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/admin/urls/${id}`, {
         method: 'DELETE',
       });
 
@@ -281,7 +281,7 @@ const Admin = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <div className="flex space-x-2">
                           <a
-                            href={`http://localhost:5000/${url.shortCode}`}
+                            href={`${process.env.NEXT_PUBLIC_SERVER_URL}/${url.shortCode}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-900"

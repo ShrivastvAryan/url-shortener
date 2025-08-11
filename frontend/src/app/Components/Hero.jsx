@@ -15,7 +15,7 @@ const Hero = () => {
 
   const fetchUrls = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/urls');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/urls`);
       const result = await response.json();
       setData(result);
     } catch (error) {
@@ -36,7 +36,7 @@ const Hero = () => {
     setSuccess('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/shorten', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/shorten`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const Hero = () => {
                       <div className="flex items-center space-x-2">
                         <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded-full">Click to test</span>
                         <button
-                          onClick={() => copyToClipboard(`http://localhost:5000/${urlData.shortCode}`)}
+                          onClick={() => copyToClipboard(`${process.env.NEXT_PUBLIC_SERVER_URL}/${urlData.shortCode}`)}
                           className="text-blue-500 hover:text-blue-700 text-sm"
                         >
                           Copy
@@ -147,13 +147,13 @@ const Hero = () => {
                       </div>
                     </div>
                     <a 
-                      href={`http://localhost:5000/${urlData.shortCode}`}
+                      href={`${process.env.NEXT_PUBLIC_SERVER_URL}/${urlData.shortCode}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-600 font-mono break-all hover:text-blue-800 hover:underline cursor-pointer transition-colors duration-200 block p-2 rounded hover:bg-blue-50"
                       title="Click to test the shortened URL"
                     >
-                      http://localhost:5000/{urlData.shortCode}
+                      {process.env.NEXT_PUBLIC_SERVER_URL}/{urlData.shortCode}
                     </a>
                     
                     <div className="text-xs text-gray-400">
